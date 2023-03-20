@@ -27,10 +27,15 @@ const routes = [
         name: 'task.tasklist'
     },
     {
-        path: '/tasks/:id',
-        component: () => import ('./pages/tasks/TaskPage.vue'),
-        name: 'task.task'
+        path: '/tasks/create',
+        component: () => import ('./pages/tasks/TaskCreatePage.vue'),
+        name: 'task.create'
     }
+    // {
+    //     path: '/tasks/:id',
+    //     component: () => import ('./pages/tasks/TaskPage.vue'),
+    //     name: 'task.task'
+    // }
 ]
 
 const router = createRouter({

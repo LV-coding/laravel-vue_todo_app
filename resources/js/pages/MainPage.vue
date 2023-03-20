@@ -12,20 +12,8 @@
             }
         },
         methods: {
-            // getValue() {
-            //     axios.get('/sanctum/csrf-cookie').then(r => {
-            //         axios.get('/api/get').then(response => {
-            //         this.vvv = response.data
-            //     })
-            //     })
-
-            // }
-        },
-        mounted() {
-            // this.getValue()
-        }
-
     }
+}
 </script>
 
 <style lang="scss" scoped>

@@ -19,5 +19,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::group(['middleware' => 'auth:sanctum'], function() {
-    Route::get('/get', App\Http\Controllers\GetController::class);
+    Route::get('/tasks', App\Http\Controllers\Task\IndexController::class);
+    Route::post('/tasks', App\Http\Controllers\Task\StoreController::class);
+    Route::delete('/tasks/{task}', App\Http\Controllers\Task\DestroyController::class);
 });
