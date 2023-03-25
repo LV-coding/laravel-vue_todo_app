@@ -6,15 +6,24 @@
         <td >{{ task.deadline }}</td>
         <td >  
             <button type="button" class="btn btn-danger btn-sm btn-right" @click.prevent="deleteTask(task.id)">Delete</button>
-            <button type="button" class="btn btn-secondary btn-sm" 
+            <button type="button" class="btn btn-secondary btn-sm btn-right" 
             @click.prevent="this.$parent.changeEditTaskId(task.id, task.title, task.priority, task.deadline, task.description)">Edit</button> 
+            <button type="button" class="btn btn-info btn-sm" @mouseover="showDescription" @mouseleave="hideDescription">Info</button>
         </td>
+    </tr>
+    <tr v-if="descriptionVisibility">
+        <td  colspan="5">Description: {{ task.description }}</td>
     </tr>
 </template>
 
 <script>
     export default {
         name: 'TaskItem',
+        data() {
+            return {
+                descriptionVisibility: false
+            }
+        },
         props: {
             task: {required: true},
             index: {required: true}
@@ -27,6 +36,12 @@
                     })
                 })
             },
+            showDescription() {
+                this.descriptionVisibility = true
+            },
+            hideDescription() {
+                this.descriptionVisibility = false
+            }
         }
     }
 </script>

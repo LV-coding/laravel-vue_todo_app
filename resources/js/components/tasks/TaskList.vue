@@ -77,4 +77,8 @@ import TaskEdit from '../../components/tasks/TaskEdit.vue'
 .btn-right {
     margin-right: 2px;
 }
+.table {
+    table-layout: fixed;
+    width: 100%;
+}
 </style>

@@ -3,8 +3,8 @@
         <input type="text" v-model="taskData.title"
         class="form-control mb-1" placeholder="Title">
 
-        <input type="number" v-model="taskData.priority"
-        class="form-control mb-1" placeholder="Priority" min="1" max="3" step="1">
+        <input type="number" v-model="taskData.priority" @input="checkPriorityValue"
+        class="form-control mb-1" placeholder="Priority (value 1-3)" min="1" max="3" step="1">
 
         <input type="datetime-local" v-model="taskData.deadline"
         class="form-control mb-1" placeholder="Deadline">
@@ -56,7 +56,16 @@
         computed: {
             isDisabled() {
                 return this.taskData.title && this.taskData.priority && this.taskData.deadline
-            }
+            },
+            checkPriorityValue() {
+                if (this.taskData.priority === '') {
+                    this.errorMsg = ''
+                } else if(this.taskData.priority < 1 || this.taskData.priority>3 ) {
+                    this.errorMsg = 'Value must only 1, 2 or 3'
+                } else {
+                    this.errorMsg = ''
+                }
+            },
         }
     }
 </script>
