@@ -10,8 +10,13 @@ class DestroyController extends Controller
 {
     public function __invoke(Task $task) {
 
-        $task->delete();
-        return response()->noContent();
-        
+        $user = auth('sanctum')->user()->id;
+
+        if( $task->user_id == $user) {
+            $task->delete();
+            return response()->noContent();
+        } else {
+            return response()->json(['status' => '403', 'message' => 'Forbidden' ]);
+        }
     }
 }

@@ -1,7 +1,7 @@
 <template>
     <div class="navbar">
         <div class="navbar__item">
-            LaraVue
+            ToDo
         </div>
         <div class="navbar__link-group">
             <router-link :to="{name: 'main'}" class="navbar__link">Main</router-link>
@@ -11,7 +11,7 @@
 
             <router-link v-if="!token" :to="{name: 'user.login'}" class="navbar__link">Login</router-link>
             <router-link v-if="!token" :to="{name: 'user.registration'}" class="navbar__link">Registration</router-link>
-            <a v-if="token" href="#" @click.prevent="logout" class="navbar__link">Logout</a>
+            <a v-if="token" href="" @click.prevent="logout" class="navbar__link">Logout</a>
         </div>
     </div>
 </template>
