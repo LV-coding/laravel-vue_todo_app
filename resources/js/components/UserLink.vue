@@ -13,5 +13,7 @@
 </script>
 
 <style lang="scss" scoped>
-
+.btns {
+    margin-bottom: 5px;
+}
 </style>

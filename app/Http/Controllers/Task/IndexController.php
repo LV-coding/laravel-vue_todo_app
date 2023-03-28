@@ -13,7 +13,7 @@ class IndexController extends Controller
     public function __invoke() {
         
         $user = auth('sanctum')->user()->id;
-        $tasks = Task::where('user_id', $user)->where('is_done', '0')->orderBy('id', 'DESC')->get();
+        $tasks = Task::where('user_id', $user)->orderBy('id', 'DESC')->get(); //->where('is_done', '0')
 
         if($tasks) {
             return TaskListResource::collection($tasks);

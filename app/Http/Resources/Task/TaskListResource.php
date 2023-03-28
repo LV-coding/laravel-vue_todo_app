@@ -19,7 +19,9 @@ class TaskListResource extends JsonResource
             'title' => $this->title,
             'priority' => $this->priority,
             'deadline' => $this->deadline,
-            'description' => $this->description
+            'description' => $this->description,
+            'is_done' => $this->is_done,
+            'closing_date' =>$this->closing_date
         ];
     }
 }

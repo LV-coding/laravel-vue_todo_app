@@ -1,5 +1,9 @@
 <template>
     <table class="table" v-if="tasks.length > 0">
+        <col style="width:35px">
+        <col style="width:270px">
+        <col style="width:60px">
+        <col style="width:200px">
         <thead>
             <tr>
             <th scope="col">№</th>
@@ -10,7 +14,7 @@
             </tr>
         </thead>
         <tbody>
-            <template  v-for="task, index in tasks">
+            <template  v-for="task, index in tasksFilter" :key="task.id">
                 <TaskItem :task="task" :index="index"></TaskItem>
                 <TaskEdit :task="task" :index="index"></TaskEdit>
             </template>
@@ -34,11 +38,14 @@ import TaskEdit from '../../components/tasks/TaskEdit.vue'
                     priority: '',
                     deadline: '',
                     description: ''
-                }
+                },
             }
         },
         components: {
             TaskItem, TaskEdit
+        },
+        props: {
+            checked_type: {required: true}
         },
         methods: {
             getTasks() {
@@ -66,6 +73,15 @@ import TaskEdit from '../../components/tasks/TaskEdit.vue'
         },
         mounted() {
             this.getTasks()
+        },
+        computed: {
+            tasksFilter() {
+                if(this.checked_type == 2) {
+                    return this.tasks
+                } else {
+                    return this.tasks.filter(task => task.is_done == this.checked_type)
+                }
+            }
         }
     }
 </script>
