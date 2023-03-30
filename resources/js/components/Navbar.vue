@@ -56,9 +56,16 @@
 .navbar {
     display: flex;
     justify-content: space-between;
-    padding: 10px;
+    padding: 15px;
+    background-color: rgb(189, 253, 204);
+    font-size: 15px;
     &__link {
         margin-left: 15px;
+        color: black;
+        text-decoration: none;
+        &:hover {
+            color: teal;
+        }
     }
 }
 </style>
