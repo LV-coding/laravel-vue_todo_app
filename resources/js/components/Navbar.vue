@@ -46,8 +46,8 @@
         mounted() {
             this.getToken()
         },
-        updated() {
-            this.getToken()
+        watch: {
+            $route: 'getToken'
         }
     }
 </script>

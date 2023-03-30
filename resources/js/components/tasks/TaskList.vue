@@ -2,7 +2,7 @@
     <table class="table" v-if="tasks.length > 0">
         <col style="width:35px">
         <col style="width:270px">
-        <col style="width:60px">
+        <col style="width:65px">
         <col style="width:200px">
         <thead>
             <tr>
